@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://cwn1sqbrptyxc"]
+
+[ext_resource type="Script" path="res://terrain/RigidBody2D.gd" id="1_a3oc1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ma7s7"]
+size = Vector2(60, 40)
+
+[node name="puddle" type="Node2D"]
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+gravity_scale = 0.0
+script = ExtResource("1_a3oc1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(0, -10)
+shape = SubResource("RectangleShape2D_ma7s7")
+debug_color = Color(0.0156863, 0.596078, 0.709804, 0.419608)
+
+[node name="ColorRect" type="ColorRect" parent="RigidBody2D"]
+offset_left = -30.0
+offset_top = -10.0
+offset_right = 30.0
+offset_bottom = 10.0
+color = Color(0, 1, 1, 1)
