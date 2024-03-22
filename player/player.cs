@@ -1,97 +1,50 @@
 using Godot;
 using System;
 
-public partial class player : Area2D
+
+
+
+public partial class player : CharacterBody2D
 {
 
-	[Export]
-	public float Velocity { get; set; } = 400;
+	private const string MOVE_UP = "move_up";
+	private const string MOVE_DOWN = "move_down";
+	private const string MOVE_LEFT = "move_left";
+	private const string MOVE_RIGHT = "move_right";
 
-	public Vector2 ScreenSize { get; set; }
+	private float _speed = 100;
+	private float _jumpSpeed = -400;
+	public float Gravity { get; set; } = ProjectSettings.GetSetting("physics/2d/default_gravity").AsSingle();
 
-	const string MOVE_UP = "move_up";
-	const string MOVE_DOWN = "move_down";
-	const string MOVE_LEFT = "move_left";
-	const string MOVE_RIGHT = "move_right";
 
-	public override void _Ready()
+	public override void _Input(InputEvent inputEvent)
 	{
-		GD.Print("Player Loaded");
-		ScreenSize = GetViewportRect().Size;
+
 	}
 
-	public override void _Process(double delta)
+	public void GetInput()
 	{
-		var velocity = Vector2.Zero;
-		if (Input.IsActionPressed(MOVE_UP))
-		{
-			velocity.Y -= 1;
-		}
+		Vector2 inputDirection = Input.GetVector(MOVE_LEFT, MOVE_RIGHT, MOVE_UP, MOVE_DOWN);
 
-		if (Input.IsActionPressed(MOVE_DOWN))
-		{
-			velocity.Y += 1;
-		}
 
-		if (Input.IsActionPressed(MOVE_RIGHT))
-		{
-			velocity.X += 1;
-		}
 
-		if (Input.IsActionPressed(MOVE_LEFT))
-		{
-			velocity.X -= 1;
-		}
-
-		var animatedSprite2D = GetNode<AnimatedSprite2D>(nameof(AnimatedSprite2D));
-
-		if (velocity.Length() > 0)
-		{
-			velocity = velocity.Normalized() * Velocity;
-			animatedSprite2D.Play();
-			SetPosition(velocity, delta);
-		}
-		else
-		{
-			animatedSprite2D.Stop();
-		}
+		Velocity = inputDirection * _speed;
 	}
 
-	public void SetPosition(Vector2 velocity, double delta)
+	public override void _PhysicsProcess(double delta)
 	{
-		Position += velocity * (float)delta;
-		Position = new Vector2(x: Mathf.Clamp(Position.X, 0, ScreenSize.X), y: Mathf.Clamp(Position.Y, 0, ScreenSize.Y));
+		var velocity = Velocity;
+		velocity.Y += Gravity * (float)delta;
+
+		if (Input.IsActionJustPressed("jump") && IsOnFloor())
+		{
+			velocity.Y = _jumpSpeed;
+		}
+
+		float direction = Input.GetAxis("ui_left", "ui_right");
+		velocity.X = direction * _speed;
+
+		Velocity = velocity;
+		MoveAndSlide();
 	}
-
-	public Vector2 GetVelocity()
-	{
-		var velocity = Vector2.Zero;
-		if (IsUpPressed())
-		{
-			velocity.Y += 1;
-		}
-
-		if (IsDownPressed())
-		{
-			velocity.Y -= 1;
-		}
-
-		if (IsRightPressed())
-		{
-			velocity.X += 1;
-		}
-
-		if (IsLeftPressed())
-		{
-			velocity.X -= 1;
-		}
-
-
-		return velocity;
-	}
-
-	public bool IsUpPressed() => Input.IsActionPressed(MOVE_UP);
-	public bool IsDownPressed() => Input.IsActionPressed(MOVE_DOWN);
-	public bool IsRightPressed() => Input.IsActionPressed(MOVE_RIGHT);
-	public bool IsLeftPressed() => Input.IsActionPressed(MOVE_LEFT);
 }
