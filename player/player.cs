@@ -5,14 +5,6 @@ using System.Threading.Tasks;
 public partial class player : CharacterBody2D
 {
 
-	[Export]
-	public int DashMultiplier { get; set; } = 8;
-	[Export]
-	public float DashDistance { get; set; } = 20.0f;
-	private const string MOVE_UP = "move_up";
-	private const string MOVE_DOWN = "move_down";
-	private const string MOVE_LEFT = "move_left";
-	private const string MOVE_RIGHT = "move_right";
 	private bool _canDash = true;
 	private bool _dashing = false;
 	private float _speed = 100;
@@ -81,12 +73,11 @@ public partial class player : CharacterBody2D
 		{
 			if (_canDash)
 			{
+				Tween tween = GetTree().CreateTween();
+				
 				var position = Position;
-				position.X = (Position.X + DashDistance) * direction;
-
-				var speed = _speed * DashMultiplier;
-				Velocity = Position.DirectionTo(position) * (float)speed;
-				_dashingTo = position;
+				position.X = Position.X * direction;
+				tween.TweenProperty(this, "position", new Vector2(100, 0) * direction, 0.25f).AsRelative();
 				_timer.Start();
 				_canDash = false;
 			}
