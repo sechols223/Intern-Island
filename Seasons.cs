@@ -10,15 +10,13 @@ public partial class Seasons : Node
 	
 	public Array<string> SeasonsQueue = new();
 
+	public Timer CycleTimer;
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 		SeasonsQueue.AddRange(new[] {Summer, Fall, Winter, Spring});
-	}
-
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
-	{
+		CycleTimer = GetNode<Timer>("CycleTimer");
 	}
 
 	public string GetCurrentSeason() => SeasonsQueue[0];
@@ -27,5 +25,10 @@ public partial class Seasons : Node
 		var firstSeason = SeasonsQueue[0];
 		SeasonsQueue.RemoveAt(0);
 		SeasonsQueue.Add(firstSeason);
+	}
+	
+	private void _on_cycle_timer_timeout()
+	{
+		CycleSeasons();
 	}
 }

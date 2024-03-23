@@ -17,7 +17,7 @@ script = ExtResource("1_x541c")
 position = Vector2(517, 318)
 
 [node name="CycleSeasonsTimer" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 5.0
 autostart = true
 
 [node name="TargetDummy" parent="." instance=ExtResource("3_n5wt6")]
