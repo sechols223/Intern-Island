@@ -3,10 +3,10 @@ extends CharacterBody2D
 var cooldown = 4.0/60.0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
-func _ready():
+func _init():
 	velocity = Vector2(300.0 + randf_range(-10.0, 10.0), -300.0 + randf_range(-20.0, 20.0))
 
-func _process(delta):
+func _process(_delta):
 	look_at(global_position + velocity)
 
 func _physics_process(delta):
