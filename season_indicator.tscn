@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://dg0albh5etkf1"]
+[gd_scene load_steps=3 format=3 uid="uid://bnngye47vo0fb"]
 
 [ext_resource type="Script" path="res://season_indicator.gd" id="1_wekmi"]
 
@@ -25,6 +25,10 @@ anchor_left = 0.75
 anchor_top = 0.85
 anchor_right = 0.95
 anchor_bottom = 0.95
+offset_left = -977.0
+offset_top = -584.8
+offset_right = -977.0
+offset_bottom = -584.8
 grow_horizontal = 0
 grow_vertical = 0
 

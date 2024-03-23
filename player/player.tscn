@@ -54,3 +54,6 @@ one_shot = true
 position = Vector2(40, 0)
 
 [node name="Watergun" parent="WeaponHolderPivot/WeaponHolder" instance=ExtResource("5_ly0tg")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_enabled = true

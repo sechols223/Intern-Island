@@ -14,11 +14,13 @@ extends Control
 }
 
 @onready var graph_container: Container = $GraphPanel/GraphContainer
+@onready var player = $"../Player"
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	var season_queue = Seasons.SeasonsQueue as Array
 	var cycle_timer = Seasons.CycleTimer as Timer
+	set_position(Vector2(player.position.x, player.position.y-100))
 	
 	for index in range(season_queue.size() + 1):
 		var child = graph_container.get_child(index) as ColorRect
