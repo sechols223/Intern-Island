@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://cp54nme6udnu"]
+
+[ext_resource type="Script" path="res://weapons/watergun/steam/steam_burst.gd" id="1_wmr8k"]
+[ext_resource type="PackedScene" uid="uid://ma5dyn25o4m" path="res://weapons/watergun/steam/watergun_steam.tscn" id="2_65rd1"]
+
+[node name="WatergunSteamBurst" type="Node2D"]
+script = ExtResource("1_wmr8k")
+steam = ExtResource("2_65rd1")

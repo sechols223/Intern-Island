@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://mc0a2ljnqyw7"]
+
+[ext_resource type="Script" path="res://weapons/watergun/icicle/watergun_icicle.gd" id="1_wqt4m"]
+[ext_resource type="Texture2D" uid="uid://cr6qh544efx8l" path="res://weapons/watergun/icicle/icicle.png" id="2_gj7j2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_glbjg"]
+size = Vector2(32, 7)
+
+[node name="WatergunIcicle" type="CharacterBody2D"]
+collision_layer = 0
+script = ExtResource("1_wqt4m")
+
+[node name="Icicle" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_gj7j2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_glbjg")
