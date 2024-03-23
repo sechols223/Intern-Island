@@ -1,0 +1,90 @@
+[gd_scene load_steps=13 format=3 uid="uid://cykry70tai076"]
+
+[ext_resource type="Texture2D" uid="uid://cpnwp5osmopqf" path="res://terrain/art/fall_tree.png" id="1_rieiq"]
+[ext_resource type="Script" path="res://terrain/Fall.gd" id="1_sbwus"]
+[ext_resource type="Texture2D" uid="uid://ojgq57pa7odq" path="res://terrain/art/spring_tree.png" id="2_go2f6"]
+[ext_resource type="Texture2D" uid="uid://dvlg0bmysncjw" path="res://terrain/art/summer_tree.png" id="3_fqnb8"]
+[ext_resource type="Script" path="res://terrain/Spring.gd" id="3_qndn2"]
+[ext_resource type="Texture2D" uid="uid://boyyq6xf2uovk" path="res://terrain/art/winter_tree.png" id="4_4uqdj"]
+[ext_resource type="Script" path="res://terrain/Summer.gd" id="5_wowkh"]
+[ext_resource type="Script" path="res://terrain/Winter.gd" id="7_omgxt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vcyyt"]
+size = Vector2(86, 81)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_34vsl"]
+size = Vector2(88, 117)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_06uah"]
+size = Vector2(85, 118)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nfwh6"]
+size = Vector2(52, 30)
+
+[node name="tree" type="Node2D"]
+position = Vector2(-1, -18)
+
+[node name="Fall" type="Node2D" parent="."]
+visible = false
+script = ExtResource("1_sbwus")
+
+[node name="FallTree" type="Sprite2D" parent="Fall"]
+position = Vector2(0, -32)
+texture = ExtResource("1_rieiq")
+
+[node name="Fallbox" type="RigidBody2D" parent="Fall"]
+collision_layer = 0
+collision_mask = 0
+gravity_scale = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fall/Fallbox"]
+position = Vector2(-1, -30.5)
+shape = SubResource("RectangleShape2D_vcyyt")
+
+[node name="Spring" type="Node2D" parent="."]
+script = ExtResource("3_qndn2")
+
+[node name="SpringTree" type="Sprite2D" parent="Spring"]
+position = Vector2(0, -48)
+texture = ExtResource("2_go2f6")
+
+[node name="Springbox" type="RigidBody2D" parent="Spring"]
+collision_layer = 0
+collision_mask = 0
+gravity_scale = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spring/Springbox"]
+position = Vector2(0, -43.5)
+shape = SubResource("RectangleShape2D_34vsl")
+
+[node name="Summer" type="Node2D" parent="."]
+script = ExtResource("5_wowkh")
+
+[node name="SummerTree" type="Sprite2D" parent="Summer"]
+position = Vector2(0, -48)
+texture = ExtResource("3_fqnb8")
+
+[node name="Summerbox" type="RigidBody2D" parent="Summer"]
+collision_layer = 0
+collision_mask = 0
+gravity_scale = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Summer/Summerbox"]
+position = Vector2(2.5, -45)
+shape = SubResource("RectangleShape2D_06uah")
+
+[node name="Winter" type="Node2D" parent="."]
+script = ExtResource("7_omgxt")
+
+[node name="WinterTree" type="Sprite2D" parent="Winter"]
+position = Vector2(0, -16)
+texture = ExtResource("4_4uqdj")
+
+[node name="Winterbox" type="RigidBody2D" parent="Winter"]
+collision_layer = 0
+collision_mask = 0
+gravity_scale = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Winter/Winterbox"]
+position = Vector2(-1, -5)
+shape = SubResource("RectangleShape2D_nfwh6")

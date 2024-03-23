@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bhvls45568kxg"]
+
+[ext_resource type="Texture2D" uid="uid://d38tbbcbbqr6m" path="res://terrain/art/kazuya.png" id="1_6m1yu"]
+[ext_resource type="Script" path="res://terrain/kazuya.gd" id="1_ipr2j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i1ibh"]
+size = Vector2(64, 64)
+
+[node name="kazuya" type="Node2D"]
+script = ExtResource("1_ipr2j")
+
+[node name="Kazuya" type="Sprite2D" parent="."]
+position = Vector2(325, 0)
+texture = ExtResource("1_6m1yu")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_i1ibh")
+
+[connection signal="body_shape_entered" from="Area2D" to="." method="_on_area_2d_body_shape_entered"]

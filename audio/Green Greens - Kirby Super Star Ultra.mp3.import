@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ci5tk8b86xckr"
+path="res://.godot/imported/Green Greens - Kirby Super Star Ultra.mp3-adee2c737d949fd44b846815b4053270.mp3str"
+
+[deps]
+
+source_file="res://audio/Green Greens - Kirby Super Star Ultra.mp3"
+dest_files=["res://.godot/imported/Green Greens - Kirby Super Star Ultra.mp3-adee2c737d949fd44b846815b4053270.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

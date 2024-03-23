@@ -33,13 +33,19 @@ public partial class player : CharacterBody2D
 
 	public override void _PhysicsProcess(double delta)
 	{
+		if(Position.Y > 2000){
+			Vector2 newPos = Position;
+			newPos.X = 457;
+			newPos.Y = 323;
+			Position = newPos;
+		}
 		float direction = Input.GetAxis("move_left", "move_right");
 		lastDirection = direction == 0f ? lastDirection : direction;
 		if (_dashTimer.IsStopped())
-		{
+		{	
 			_dashClouds.Emitting = false;
 			var velocity = Velocity;
-
+			
 			velocity.Y += Gravity * (float)delta;
 
 			if (Input.IsActionJustPressed("jump") && IsOnFloor())
@@ -50,8 +56,9 @@ public partial class player : CharacterBody2D
 			GetNode<GodotObject>("WeaponHolderPivot").Set("scale", new Vector2(lastDirection, 1));
 			GetNode<GodotObject>("WeaponHolderPivot/WeaponHolder").Set("direction", (int)Math.Round(lastDirection));
 			float speed = Speed;
-
-			velocity.X = direction * speed *_playerInfo.GetSpeedModifier() ;
+				
+			velocity.X = direction * speed *_playerInfo.GetSpeedModifier();
+			
 			_playerInfo.setXandY(Position.X,Position.Y);
 
 			Velocity = velocity;
@@ -77,3 +84,4 @@ public partial class player : CharacterBody2D
 		}
 	}
 }
+

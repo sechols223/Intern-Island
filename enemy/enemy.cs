@@ -26,9 +26,9 @@ public partial class enemy : CharacterBody2D
 
 	public override void _Ready()
 	{
-        _animatedSprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+		_animatedSprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 		_collisionShape = GetNode<CollisionShape2D>("CollisionShape2D");
-        _seasons = GetNode<Seasons>("/root/Seasons");
+		_seasons = GetNode<Seasons>("/root/Seasons");
 
 		if (direction == 1)
 		{

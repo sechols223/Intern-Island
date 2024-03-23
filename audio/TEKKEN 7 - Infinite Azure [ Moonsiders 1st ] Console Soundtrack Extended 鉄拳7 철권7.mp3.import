@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://diu42t0p4ae0g"
+path="res://.godot/imported/TEKKEN 7 - Infinite Azure [ Moonsiders 1st ] Console Soundtrack Extended 鉄拳7 철권7.mp3-8ed69fc10c97054e66fdc1416a48d619.mp3str"
+
+[deps]
+
+source_file="res://audio/TEKKEN 7 - Infinite Azure [ Moonsiders 1st ] Console Soundtrack Extended 鉄拳7 철권7.mp3"
+dest_files=["res://.godot/imported/TEKKEN 7 - Infinite Azure [ Moonsiders 1st ] Console Soundtrack Extended 鉄拳7 철권7.mp3-8ed69fc10c97054e66fdc1416a48d619.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4
