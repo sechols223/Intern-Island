@@ -1,11 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://cykry70tai076"]
+[gd_scene load_steps=13 format=3 uid="uid://y7wrxlf1fpmw"]
 
-[ext_resource type="Texture2D" uid="uid://cpnwp5osmopqf" path="res://terrain/art/fall_tree.png" id="1_rieiq"]
+[ext_resource type="Texture2D" path="res://terrain/art/fall_tree.png" id="1_rieiq"]
 [ext_resource type="Script" path="res://terrain/Fall.gd" id="1_sbwus"]
-[ext_resource type="Texture2D" uid="uid://ojgq57pa7odq" path="res://terrain/art/spring_tree.png" id="2_go2f6"]
-[ext_resource type="Texture2D" uid="uid://dvlg0bmysncjw" path="res://terrain/art/summer_tree.png" id="3_fqnb8"]
+[ext_resource type="Texture2D" path="res://terrain/art/spring_tree.png" id="2_go2f6"]
+[ext_resource type="Texture2D" path="res://terrain/art/summer_tree.png" id="3_fqnb8"]
 [ext_resource type="Script" path="res://terrain/Spring.gd" id="3_qndn2"]
-[ext_resource type="Texture2D" uid="uid://boyyq6xf2uovk" path="res://terrain/art/winter_tree.png" id="4_4uqdj"]
+[ext_resource type="Texture2D" path="res://terrain/art/winter_tree.png" id="4_4uqdj"]
 [ext_resource type="Script" path="res://terrain/Summer.gd" id="5_wowkh"]
 [ext_resource type="Script" path="res://terrain/Winter.gd" id="7_omgxt"]
 

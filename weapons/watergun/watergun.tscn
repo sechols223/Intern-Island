@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c0tprmfn7w2qg"]
+[gd_scene load_steps=11 format=3 uid="uid://c0tprmfn7w2qg"]
 
 [ext_resource type="Script" path="res://weapons/watergun/watergun.gd" id="1_oj1hu"]
 [ext_resource type="PackedScene" uid="uid://b54o0v4gak51l" path="res://weapons/watergun/bubble/watergun_bubble.tscn" id="2_28wqd"]
@@ -6,6 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://dy0xctf1u1b5f" path="res://weapons/watergun/watergun.png" id="3_o30u7"]
 [ext_resource type="PackedScene" uid="uid://cp54nme6udnu" path="res://weapons/watergun/steam/watergun_steam_burst.tscn" id="4_e4is5"]
 [ext_resource type="PackedScene" uid="uid://da7qh6u4vr0nc" path="res://weapons/watergun/water/watergun_water.tscn" id="5_qdjec"]
+[ext_resource type="AudioStream" uid="uid://bmfs2771p7ts1" path="res://audio/Bubble Sound Effect.mp3" id="7_m72q2"]
+[ext_resource type="AudioStream" uid="uid://boum3b6lipdj4" path="res://audio/HD - Ice Cracking Sound Effect.mp3" id="8_627c8"]
+[ext_resource type="AudioStream" uid="uid://dwy8ge5no5scj" path="res://audio/Garden Hose Sound Effect - Free Download & No Copyright.mp3" id="9_jx558"]
+[ext_resource type="AudioStream" uid="uid://bi2ulrymgwdeb" path="res://audio/Steam Train Whistle - Sound Effect (HD).mp3" id="10_dm83f"]
 
 [node name="Watergun" type="Node2D"]
 script = ExtResource("1_oj1hu")
@@ -24,3 +28,19 @@ gizmo_extents = 18.0
 
 [node name="CooldownTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="bubble" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_m72q2")
+volume_db = -5.0
+
+[node name="ice" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_627c8")
+volume_db = -5.0
+
+[node name="water" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_jx558")
+volume_db = -5.0
+
+[node name="steam" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_dm83f")
+volume_db = -5.0

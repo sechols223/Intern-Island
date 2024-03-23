@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dwy8ge5no5scj"
+path="res://.godot/imported/Garden Hose Sound Effect - Free Download & No Copyright.mp3-9c4f2f1066eca41a7c00e9bd09a41445.mp3str"
+
+[deps]
+
+source_file="res://audio/Garden Hose Sound Effect - Free Download & No Copyright.mp3"
+dest_files=["res://.godot/imported/Garden Hose Sound Effect - Free Download & No Copyright.mp3-9c4f2f1066eca41a7c00e9bd09a41445.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

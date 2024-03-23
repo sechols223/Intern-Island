@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bi2ulrymgwdeb"
+path="res://.godot/imported/Steam Train Whistle - Sound Effect (HD).mp3-ae10717bdae8111dd34e0192f9721c36.mp3str"
+
+[deps]
+
+source_file="res://audio/Steam Train Whistle - Sound Effect (HD).mp3"
+dest_files=["res://.godot/imported/Steam Train Whistle - Sound Effect (HD).mp3-ae10717bdae8111dd34e0192f9721c36.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

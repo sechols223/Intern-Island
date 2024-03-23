@@ -1,6 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://bhvls45568kxg"]
+[gd_scene load_steps=4 format=3 uid="uid://cpbk1ptqlyuq2"]
 
-[ext_resource type="Texture2D" uid="uid://d38tbbcbbqr6m" path="res://terrain/art/kazuya.png" id="1_6m1yu"]
+[ext_resource type="Texture2D" path="res://terrain/art/kazuya.png" id="1_6m1yu"]
 [ext_resource type="Script" path="res://terrain/kazuya.gd" id="1_ipr2j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i1ibh"]
