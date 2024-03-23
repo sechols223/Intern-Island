@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://ma5dyn25o4m"]
+
+[ext_resource type="Script" path="res://weapons/watergun/steam/watergun_steam.gd" id="1_qgcdk"]
+[ext_resource type="Texture2D" uid="uid://baoccaaxfwmiq" path="res://weapons/watergun/steam/steam.png" id="2_he0p2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cpjgy"]
+radius = 32.0
+
+[node name="WatergunSteam" type="Area2D"]
+collision_layer = 0
+script = ExtResource("1_qgcdk")
+
+[node name="Steam" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("2_he0p2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_cpjgy")
+
+[node name="FadeTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="FadeTimer" to="." method="_on_fade_timer_timeout"]

@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://wph2ylmvxca2"]
+
+[ext_resource type="Script" path="res://weapons/watergun/watergun_test.gd" id="1_x541c"]
+[ext_resource type="PackedScene" uid="uid://c0tprmfn7w2qg" path="res://weapons/watergun/watergun.tscn" id="2_ciqv6"]
+[ext_resource type="PackedScene" uid="uid://cf3yy7tl0nxrh" path="res://target_dummy.tscn" id="3_n5wt6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8tjab"]
+size = Vector2(300, 20)
+
+[sub_resource type="BoxMesh" id="BoxMesh_g1gpd"]
+size = Vector3(300, 20, 1)
+
+[node name="WatergunTest" type="Node"]
+script = ExtResource("1_x541c")
+
+[node name="Watergun" parent="." instance=ExtResource("2_ciqv6")]
+position = Vector2(517, 318)
+
+[node name="CycleSeasonsTimer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[node name="TargetDummy" parent="." instance=ExtResource("3_n5wt6")]
+position = Vector2(842, 325)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(683, 431)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_8tjab")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D"]
+mesh = SubResource("BoxMesh_g1gpd")
+
+[connection signal="timeout" from="CycleSeasonsTimer" to="." method="_on_cycle_seasons_timer_timeout"]

@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://cf3yy7tl0nxrh"]
+
+[ext_resource type="Texture2D" uid="uid://nwe2wi5315om" path="res://icon.svg" id="1_3mrgk"]
+[ext_resource type="Script" path="res://target_dummy.gd" id="1_lecpu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kpvn7"]
+size = Vector2(128, 128)
+
+[node name="TargetDummy" type="StaticBody2D" groups=["hittable"]]
+script = ExtResource("1_lecpu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_kpvn7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_3mrgk")

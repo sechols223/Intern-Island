@@ -1,0 +1,26 @@
+[gd_scene load_steps=7 format=3 uid="uid://c0tprmfn7w2qg"]
+
+[ext_resource type="Script" path="res://weapons/watergun/watergun.gd" id="1_oj1hu"]
+[ext_resource type="PackedScene" uid="uid://b54o0v4gak51l" path="res://weapons/watergun/bubble/watergun_bubble.tscn" id="2_28wqd"]
+[ext_resource type="PackedScene" uid="uid://mc0a2ljnqyw7" path="res://weapons/watergun/icicle/watergun_icicle.tscn" id="3_mie1q"]
+[ext_resource type="Texture2D" uid="uid://dy0xctf1u1b5f" path="res://weapons/watergun/watergun.png" id="3_o30u7"]
+[ext_resource type="PackedScene" uid="uid://cp54nme6udnu" path="res://weapons/watergun/steam/watergun_steam_burst.tscn" id="4_e4is5"]
+[ext_resource type="PackedScene" uid="uid://da7qh6u4vr0nc" path="res://weapons/watergun/water/watergun_water.tscn" id="5_qdjec"]
+
+[node name="Watergun" type="Node2D"]
+script = ExtResource("1_oj1hu")
+bubble = ExtResource("2_28wqd")
+icicle = ExtResource("3_mie1q")
+steam = ExtResource("4_e4is5")
+water = ExtResource("5_qdjec")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("3_o30u7")
+
+[node name="FirePosition" type="Marker2D" parent="."]
+position = Vector2(40, 0)
+gizmo_extents = 18.0
+
+[node name="CooldownTimer" type="Timer" parent="."]
+one_shot = true
