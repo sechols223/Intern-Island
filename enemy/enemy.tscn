@@ -1,8 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://bq1qgrvxpwvaq"]
+[gd_scene load_steps=8 format=3 uid="uid://bq1qgrvxpwvaq"]
 
 [ext_resource type="Script" path="res://enemy/enemy.cs" id="1_mqkbs"]
 [ext_resource type="Texture2D" uid="uid://jh5ng7fof2w0" path="res://ASSETS/Slime Sprite/slimeBlue.png" id="2_10ijs"]
-[ext_resource type="Texture2D" uid="uid://nmn8ubbkutxu" path="res://ASSETS/Slime Sprite/slimeBlue_blue.png" id="3_4t1fo"]
+[ext_resource type="Texture2D" uid="uid://cymdc6n3j0vxq" path="res://ASSETS/Slime Sprite/slimeBlue_dead.png" id="3_vooji"]
+[ext_resource type="Texture2D" uid="uid://di20kaguj5fjt" path="res://ASSETS/Slime Sprite/slimeGreen_hit.png" id="4_vd3x5"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2if6h"]
+load_path = "res://.godot/imported/slimeBlue_blue.png-83a1a2670e3cb137dc95377bf63895fd.ctex"
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4k1iy"]
 animations = [{
@@ -11,11 +15,27 @@ animations = [{
 "texture": ExtResource("2_10ijs")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_4t1fo")
+"texture": SubResource("CompressedTexture2D_2if6h")
 }],
 "loop": true,
 "name": &"crawl",
 "speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_vooji")
+}],
+"loop": true,
+"name": &"dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_vd3x5")
+}],
+"loop": false,
+"name": &"hit",
+"speed": 60.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jgn51"]
@@ -27,8 +47,10 @@ script = ExtResource("1_mqkbs")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(1.5102, 1.47059)
 sprite_frames = SubResource("SpriteFrames_4k1iy")
-animation = &"crawl"
+animation = &"dead"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_jgn51")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
