@@ -22,4 +22,10 @@ public partial class Seasons : Node
 	}
 
 	public string GetCurrentSeason() => SeasonsQueue[0];
+
+	public void CycleSeasons() {
+		var firstSeason = SeasonsQueue[0];
+		SeasonsQueue.RemoveAt(0);
+		SeasonsQueue.Add(firstSeason);
+	}
 }
