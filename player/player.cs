@@ -14,19 +14,21 @@ public partial class player : CharacterBody2D
 	[Export]
 	public int DashMultiplier { get; set; } = 600;
 
-    public float Gravity { get; set; } = ProjectSettings.GetSetting("physics/2d/default_gravity").AsSingle();
+	public float Gravity { get; set; } = ProjectSettings.GetSetting("physics/2d/default_gravity").AsSingle();
 
 	public float lastDirection = 1;
-
+	public PlayerInfo _playerInfo;
 	private Timer _cooldownTimer;
 	private Timer _dashTimer;
-    private GpuParticles2D _dashClouds;
+	private GpuParticles2D _dashClouds;
 
-    public override void _Ready()
+	public override void _Ready()
 	{
 		_cooldownTimer = GetNode<Timer>("CooldownTimer");
 		_dashTimer = GetNode<Timer>("DashTimer");
 		_dashClouds = GetNode<GpuParticles2D>("DashClouds");
+		_playerInfo = GetNode<PlayerInfo>("/root/PlayerInfo");
+		_playerInfo.setXandY(Position.X,Position.Y);
 	}
 
 	public override void _PhysicsProcess(double delta)
@@ -49,7 +51,8 @@ public partial class player : CharacterBody2D
 			GetNode<GodotObject>("WeaponHolderPivot/WeaponHolder").Set("direction", (int)Math.Round(lastDirection));
 			float speed = Speed;
 
-			velocity.X = direction * speed;
+			velocity.X = direction * speed *_playerInfo.GetSpeedModifier() ;
+			_playerInfo.setXandY(Position.X,Position.Y);
 
 			Velocity = velocity;
 			if (Input.IsActionJustPressed("movement_action"))

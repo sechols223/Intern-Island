@@ -21,17 +21,17 @@ func season_change(season):
 			PlayerInfo.setSpeedModifier(float(3));
 			
 	if(season == Seasons.Summer):
-		leaves.set_global_position(Vector2(-72,64))
-		leaves2.set_global_position(Vector2(-52,64))
+		leaves.set_position(Vector2(-72,164))
+		leaves2.set_position(Vector2(-52,164))
 	if(season == Seasons.Fall):
-		leaves.set_global_position(Vector2(-72,-64))
-		leaves2.set_global_position(Vector2(52,-64))
+		leaves.set_position(Vector2(-72,-64))
+		leaves2.set_position(Vector2(52,-64))
 	if(season == Seasons.Spring):
-		leaves.set_global_position(Vector2(-72,64))
-		leaves2.set_global_position(Vector2(-52,64))
+		leaves.set_position(Vector2(-72,164))
+		leaves2.set_position(Vector2(-52,164))
 	if(season == Seasons.Winter):
-		leaves.set_global_position(Vector2(-72,64))
-		leaves2.set_global_position(Vector2(-52,64))
+		leaves.set_position(Vector2(-72,164))
+		leaves2.set_position(Vector2(-52,164))
 		
 func _process(delta):
 	season_change(Seasons.GetCurrentSeason())
