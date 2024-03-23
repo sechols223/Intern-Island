@@ -4,89 +4,73 @@ using System.Threading.Tasks;
 
 public partial class player : CharacterBody2D
 {
-
-	private bool _canDash = true;
+	
 	private bool _dashing = false;
-	private float _speed = 100;
-	private float _jumpSpeed = -400;
-	private Vector2? _dashingTo;
-	public float Gravity { get; set; } = ProjectSettings.GetSetting("physics/2d/default_gravity").AsSingle();
+	[Export]
+	public float Speed { get; set; } = 200;
+	[Export]
+	public float JumpSpeed { get; set; } = -400;
+
+	[Export]
+	public int DashMultiplier { get; set; } = 600;
+
+    public float Gravity { get; set; } = ProjectSettings.GetSetting("physics/2d/default_gravity").AsSingle();
 
 	public float lastDirection = 1;
 
-	private Timer _timer;
-	public override void _Ready()
-	{
-		Timer timer = GetNode<Timer>("DashTimer");
-		timer.WaitTime = 1.5f;
+	private Timer _cooldownTimer;
+	private Timer _dashTimer;
+    private GpuParticles2D _dashClouds;
 
-		_timer = timer;
+    public override void _Ready()
+	{
+		_cooldownTimer = GetNode<Timer>("CooldownTimer");
+		_dashTimer = GetNode<Timer>("DashTimer");
+		_dashClouds = GetNode<GpuParticles2D>("DashClouds");
 	}
 
-	public void OnTimeout()
-	{
-		_canDash = true;
-		_timer.Stop();
-	}
 	public override void _PhysicsProcess(double delta)
 	{
-		if (!_dashing)
+		float direction = Input.GetAxis("move_left", "move_right");
+		lastDirection = direction == 0f ? lastDirection : direction;
+		if (_dashTimer.IsStopped())
 		{
+			_dashClouds.Emitting = false;
 			var velocity = Velocity;
 
 			velocity.Y += Gravity * (float)delta;
 
 			if (Input.IsActionJustPressed("jump") && IsOnFloor())
 			{
-				velocity.Y = _jumpSpeed;
+				velocity.Y = JumpSpeed;
 			}
 
-			float direction = Input.GetAxis("move_left", "move_right");
-			lastDirection = direction == 0f ? lastDirection : direction;
 			GetNode<GodotObject>("WeaponHolderPivot").Set("scale", new Vector2(lastDirection, 1));
 			GetNode<GodotObject>("WeaponHolderPivot/WeaponHolder").Set("direction", (int)Math.Round(lastDirection));
-			float speed = _speed;
+			float speed = Speed;
 
 			velocity.X = direction * speed;
 
 			Velocity = velocity;
-
-			Dash();
+			if (Input.IsActionJustPressed("movement_action"))
+			{
+				Dash();
+			}
 		}
 		else
 		{
-			if (_dashingTo != null)
-			{
-				if (Position.DistanceTo(_dashingTo.Value) > 10)
-				{
-					MoveAndSlide();
-				}
-				else
-				{
-					_dashingTo = null;
-					_dashing = false;
-				}
-			}
-
+			_dashClouds.Emitting = true;
+			Velocity = new Vector2(DashMultiplier * lastDirection, 0);
 		}
+		MoveAndSlide();
 	}
 
 	private void Dash()
 	{
-		float direction = Input.GetAxis("move_left", "move_right");
-		if (Input.IsActionJustPressed("movement_action"))
+		if (_cooldownTimer.IsStopped())
 		{
-			if (_canDash)
-			{
-				Tween tween = GetTree().CreateTween();
-				
-				var position = Position;
-				position.X = Position.X * direction;
-				tween.TweenProperty(this, "position", new Vector2(100, 0) * direction, 0.25f).AsRelative();
-				_timer.Start();
-				_canDash = false;
-			}
+			_dashTimer.Start();
+			_cooldownTimer.Start();
 		}
-		MoveAndSlide();
 	}
 }
