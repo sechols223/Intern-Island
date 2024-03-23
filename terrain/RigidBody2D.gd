@@ -1,8 +1,8 @@
 extends RigidBody2D
 
 @onready var colorRect = $ColorRect
-@onready var waterCollision = $CollisionShape2D
-var season = ""
+@onready var waterCollision = $"."
+var season 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	
@@ -11,23 +11,23 @@ func _ready():
 func season_change(newSeason):
 	if(newSeason != season):
 		season = newSeason
-		if(newSeason == "fall"):
+		if(newSeason == Seasons.Fall):
 			colorRect.color = Color.DARK_BLUE
-			get_node("CollisionShape2D").disabled = true 
+			waterCollision.set_collision_layer_value(1,false)
 	
-		if(newSeason == "winter"):
+		if(newSeason == Seasons.Winter):
 			colorRect.color = Color.LIGHT_BLUE
-			waterCollision.disabled = false
+			waterCollision.set_collision_layer_value(1,true)
 	
-		if(newSeason == "summer"):
+		if(newSeason == Seasons.Summer):
 			colorRect.color = Color.DODGER_BLUE
-			waterCollision.disabled = true
+			waterCollision.set_collision_layer_value(1,false)
 	
-		if(newSeason == "spring"):
+		if(newSeason == Seasons.Spring):
 			colorRect.color = Color.SADDLE_BROWN
-			waterCollision.disabled = false
+			waterCollision.set_collision_layer_value(1,true)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	season_change("fall")
+	season_change(Seasons.GetCurrentSeason())
 	pass

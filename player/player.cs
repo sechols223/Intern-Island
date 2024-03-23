@@ -11,7 +11,7 @@ public partial class player : CharacterBody2D
 	private float _jumpSpeed = -400;
 	private Vector2? _dashingTo;
 	public float Gravity { get; set; } = ProjectSettings.GetSetting("physics/2d/default_gravity").AsSingle();
-
+	private PlayerInfo _playerInfo;
 	private Timer _timer;
 	public override void _Ready()
 	{
@@ -41,8 +41,10 @@ public partial class player : CharacterBody2D
 
 			float direction = Input.GetAxis("ui_left", "ui_right");
 			float speed = _speed;
-
-			velocity.X = direction * speed;
+			
+			_playerInfo = GetNode<PlayerInfo>("/root/PlayerInfo");
+					 
+			velocity.X = direction * speed * playerInfo.getspeed_modifier();
 
 			Velocity = velocity;
 
