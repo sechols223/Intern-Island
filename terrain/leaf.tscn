@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://xo3fwv013cr7"]
+
+[ext_resource type="Texture2D" uid="uid://cr6m81h2r1g3l" path="res://terrain/art/brown leaf.png" id="1_1n8o6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_78uia"]
+size = Vector2(16, 8)
+
+[node name="Leaf" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5708
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_1n8o6")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+disable_mode = 1
+gravity_scale = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource("RectangleShape2D_78uia")

@@ -31,7 +31,7 @@ public partial class enemy : CharacterBody2D
         _seasons = GetNode<Seasons>("/root/Seasons");
 
 		if (direction == 1)
-        {
+		{
 			_animatedSprite.FlipH = true;
 		}
 		_animatedSprite.Play("crawl");
@@ -39,7 +39,7 @@ public partial class enemy : CharacterBody2D
 
 	public override void _PhysicsProcess(double delta)
 	{
-        Vector2 velocity = Velocity;
+		Vector2 velocity = Velocity;
 		var currentSeason = _seasons.GetCurrentSeason();
 
 		// Add the gravity.

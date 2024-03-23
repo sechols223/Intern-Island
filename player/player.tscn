@@ -3,8 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://bvdvfpstubgdl" path="res://dodge_the_creeps_2d_assets/dodge_the_creeps_2d_assets/art/playerGrey_walk1.png" id="1_4qeux"]
 [ext_resource type="Script" path="res://player/player.cs" id="1_jaw6m"]
 [ext_resource type="Texture2D" uid="uid://dlyfmriaj3q5" path="res://dodge_the_creeps_2d_assets/dodge_the_creeps_2d_assets/art/playerGrey_walk2.png" id="2_p8tdr"]
-[ext_resource type="PackedScene" uid="uid://luj2wf2qnmij" path="res://weapons/weapon_holder.tscn" id="4_1ps1j"]
-[ext_resource type="PackedScene" uid="uid://n8k15aaw1jer" path="res://dash_clouds.tscn" id="4_jhxfq"]
+[ext_resource type="PackedScene" path="res://weapons/weapon_holder.tscn" id="4_1ps1j"]
+[ext_resource type="PackedScene" path="res://dash_clouds.tscn" id="4_jhxfq"]
 [ext_resource type="PackedScene" uid="uid://c0tprmfn7w2qg" path="res://weapons/watergun/watergun.tscn" id="5_ly0tg"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_uv1hn"]
@@ -27,6 +27,7 @@ height = 70.0
 
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(3, -2)
+collision_layer = 3
 script = ExtResource("1_jaw6m")
 metadata/_edit_group_ = true
 
