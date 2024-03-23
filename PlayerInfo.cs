@@ -24,4 +24,10 @@ public partial class PlayerInfo : Node
 		x = newX;
 		y = newY;
 	}
+	public float getX(){
+		return x;
+	}
+	public float getY(){
+		return y;
+	}
 }
