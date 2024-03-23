@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Seasons="*res://seasons.tscn"
+PlayerInfo="*res://player/player_info.tscn"
 
 [dotnet]
 
