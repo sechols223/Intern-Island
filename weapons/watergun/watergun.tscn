@@ -19,7 +19,7 @@ texture_filter = 1
 texture = ExtResource("3_o30u7")
 
 [node name="FirePosition" type="Marker2D" parent="."]
-position = Vector2(40, 0)
+position = Vector2(22, 0)
 gizmo_extents = 18.0
 
 [node name="CooldownTimer" type="Timer" parent="."]

@@ -12,7 +12,7 @@ func _physics_process(delta):
 	if collision_info:
 		var collider = collision_info.get_collider()
 		if collider is Node and collider.is_in_group("hittable"):
-			collider.hit("bubble", 10)
+			collider.hit("bubble", 15)
 			pop()
 		velocity = velocity.bounce(collision_info.get_normal())
 

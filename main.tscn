@@ -1,10 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://vk8t78obd2yk"]
+[gd_scene load_steps=8 format=3 uid="uid://vk8t78obd2yk"]
 
 [ext_resource type="Script" path="res://main.cs" id="1_82a8v"]
 [ext_resource type="PackedScene" uid="uid://bff41srivprx" path="res://player/player.tscn" id="1_fix0w"]
 [ext_resource type="Texture2D" uid="uid://dasycdqlrd7il" path="res://dodge_the_creeps_2d_assets/dodge_the_creeps_2d_assets/art/kenney_abstract-platformer/Tilesheet/tilesheet_complete.png" id="3_u4i7a"]
-[ext_resource type="PackedScene" path="res://season_indicator.tscn" id="4_6qjfr"]
-[ext_resource type="PackedScene" uid="uid://cwn1sqbrptyxc" path="res://terrain/puddle.tscn" id="4_a3pka"]
+[ext_resource type="PackedScene" uid="uid://dg0albh5etkf1" path="res://season_indicator.tscn" id="4_6qjfr"]
 [ext_resource type="PackedScene" uid="uid://bq1qgrvxpwvaq" path="res://enemy/enemy.tscn" id="4_sclm2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_egvvn"]
@@ -283,9 +282,11 @@ texture_region_size = Vector2i(64, 64)
 1:4/0 = 0
 1:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 1:4/0/physics_layer_0/angular_velocity = 0.0
+1:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(32, -32, 32, 32, -32, 32)
 2:4/0 = 0
 2:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 2:4/0/physics_layer_0/angular_velocity = 0.0
+2:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, 32, -32, 32)
 3:4/0 = 0
 3:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 3:4/0/physics_layer_0/angular_velocity = 0.0
@@ -346,9 +347,11 @@ texture_region_size = Vector2i(64, 64)
 1:5/0 = 0
 1:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 1:5/0/physics_layer_0/angular_velocity = 0.0
+1:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
 2:5/0 = 0
 2:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 2:5/0/physics_layer_0/angular_velocity = 0.0
+2:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
 3:5/0 = 0
 3:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 3:5/0/physics_layer_0/angular_velocity = 0.0
@@ -833,9 +836,3 @@ layer_0/tile_data = PackedInt32Array(524292, 65536, 3, 589828, 0, 3, 524293, 131
 
 [node name="Enemy" parent="." instance=ExtResource("4_sclm2")]
 position = Vector2(689, 272)
-
-[node name="puddle" parent="." instance=ExtResource("4_a3pka")]
-position = Vector2(681, 508)
-
-[node name="puddle2" parent="." instance=ExtResource("4_a3pka")]
-position = Vector2(517, 508)

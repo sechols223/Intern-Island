@@ -22,9 +22,9 @@ spring = Color(0, 0.662745, 0, 1)
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.75
-anchor_top = 0.85
+anchor_top = 0.05
 anchor_right = 0.95
-anchor_bottom = 0.95
+anchor_bottom = 0.15
 grow_horizontal = 0
 grow_vertical = 0
 
