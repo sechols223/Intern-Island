@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://cis26sjyeyq5t"]
+
+[ext_resource type="Script" path="res://terrain/RigidBody2D.gd" id="1_wgc55"]
+[ext_resource type="Script" path="res://terrain/slowArea.gd" id="2_tvpon"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hippj"]
+size = Vector2(613, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yvush"]
+size = Vector2(614, 64)
+
+[node name="water" type="Node2D"]
+
+[node name="water" type="RigidBody2D" parent="."]
+collision_layer = 0
+collision_mask = 0
+gravity_scale = 0.0
+script = ExtResource("1_wgc55")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="water"]
+position = Vector2(172.5, -32)
+shape = SubResource("RectangleShape2D_hippj")
+debug_color = Color(0.0156863, 0.596078, 0.709804, 0.419608)
+
+[node name="slowArea" type="Area2D" parent="water"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("2_tvpon")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="water/slowArea"]
+position = Vector2(173, -94)
+shape = SubResource("RectangleShape2D_yvush")
+
+[node name="ColorRect" type="ColorRect" parent="water"]
+offset_left = -134.0
+offset_top = -64.0
+offset_right = 480.0
+
+[connection signal="body_shape_entered" from="water/slowArea" to="water/slowArea" method="_on_body_shape_entered"]
+[connection signal="body_shape_exited" from="water/slowArea" to="water/slowArea" method="_on_body_shape_exited"]
