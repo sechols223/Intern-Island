@@ -9,8 +9,6 @@ public partial class enemy : CharacterBody2D
 	private Signal signal;
 
 	public const float BaseSpeed = 50.0f;
-	public const float SummerSpeed = BaseSpeed + 100;
-	public const float SpringSpeed = BaseSpeed / 4;
 	public const float JumpVelocity = -400.0f;
 
 	public int direction = -1;
@@ -58,10 +56,10 @@ public partial class enemy : CharacterBody2D
 		//Change speed based on season
 		var speed = currentSeason switch
 		{
-			"summer" => SummerSpeed,
-			"spring" => SpringSpeed,
-			"winter" => SummerSpeed,
-			"fall" => SpringSpeed,
+			"summer" => BaseSpeed * 3,
+			"spring" => BaseSpeed,
+			"winter" => BaseSpeed / 3,
+			"fall" => BaseSpeed,
 			_ => BaseSpeed,
 		};
 
