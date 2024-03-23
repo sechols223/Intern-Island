@@ -26,6 +26,7 @@ height = 70.0
 
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(3, -2)
+collision_layer = 3
 script = ExtResource("1_jaw6m")
 metadata/_edit_group_ = true
 

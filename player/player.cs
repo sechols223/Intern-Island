@@ -19,6 +19,7 @@ public partial class player : CharacterBody2D
 	{
 		Timer timer = GetNode<Timer>("DashTimer");
 		_playerInfo = GetNode<PlayerInfo>("/root/PlayerInfo");
+		_playerInfo.setXandY(Position.X,Position.Y);
 		timer.WaitTime = 1.5f;
 
 		_timer = timer;
@@ -50,6 +51,7 @@ public partial class player : CharacterBody2D
 			
 					 
 			velocity.X = direction * speed * _playerInfo.GetSpeedModifier();
+			
 			Velocity = velocity;
 
 			Dash();
@@ -82,6 +84,7 @@ public partial class player : CharacterBody2D
 				Tween tween = GetTree().CreateTween();
 				
 				var position = Position;
+				_playerInfo.setXandY(Position.X,Position.Y);
 				position.X = Position.X * direction;
 				tween.TweenProperty(this, "position", new Vector2(100, 0) * direction, 0.25f).AsRelative();
 				_timer.Start();

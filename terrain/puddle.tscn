@@ -44,13 +44,12 @@ gravity_scale = 0.0
 script = ExtResource("1_a3oc1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="water"]
-visible = false
 position = Vector2(0, -32)
 shape = SubResource("RectangleShape2D_ma7s7")
 debug_color = Color(0.0156863, 0.596078, 0.709804, 0.419608)
 
 [node name="slowArea" type="Area2D" parent="water"]
-collision_layer = 2
+collision_layer = 0
 collision_mask = 2
 script = ExtResource("3_5c2bb")
 
@@ -59,7 +58,6 @@ position = Vector2(0, -94)
 shape = SubResource("RectangleShape2D_kgoyc")
 
 [node name="ColorRect" type="ColorRect" parent="water"]
-visible = false
 offset_left = -80.0
 offset_top = -64.0
 offset_right = 80.0
@@ -72,3 +70,6 @@ gravity_scale = 0.0
 visible = false
 position = Vector2(0, -3)
 shape = SubResource("RectangleShape2D_vipra")
+
+[connection signal="body_shape_entered" from="water/slowArea" to="water/slowArea" method="_on_body_shape_entered"]
+[connection signal="body_shape_exited" from="water/slowArea" to="water/slowArea" method="_on_body_shape_exited"]

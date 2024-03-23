@@ -20,8 +20,8 @@ func season_change(newSeason):
 			waterCollision.set_collision_layer_value(1,true)
 	
 		if(newSeason == Seasons.Summer):
-			colorRect.color = Color.DODGER_BLUE
-			waterCollision.set_collision_layer_value(1,false)
+			colorRect.color = Color.GREEN
+			waterCollision.set_collision_layer_value(1,true)
 	
 		if(newSeason == Seasons.Spring):
 			colorRect.color = Color.SADDLE_BROWN
@@ -31,3 +31,6 @@ func season_change(newSeason):
 func _process(delta):
 	season_change(Seasons.GetCurrentSeason())
 	pass
+
+
+
