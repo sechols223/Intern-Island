@@ -13,8 +13,8 @@ public partial class player : CharacterBody2D
 	public float Gravity { get; set; } = ProjectSettings.GetSetting("physics/2d/default_gravity").AsSingle();
 
 	public float lastDirection = 1;
-
-	private PlayerInfo _playerInfo;
+	public Seasons _seasons;
+	public PlayerInfo _playerInfo;
 	private Timer _timer;
 	public override void _Ready()
 	{
@@ -50,8 +50,7 @@ public partial class player : CharacterBody2D
 			
 			_playerInfo = GetNode<PlayerInfo>("/root/PlayerInfo");
 					 
-			velocity.X = direction * speed * playerInfo.getspeed_modifier();
-
+			velocity.X = direction * speed * _playerInfo.GetSpeedModifier();
 			Velocity = velocity;
 
 			Dash();
