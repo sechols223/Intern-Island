@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://bq1qgrvxpwvaq"]
+
+[ext_resource type="Script" path="res://enemy/enemy.cs" id="1_mqkbs"]
+[ext_resource type="Texture2D" uid="uid://jh5ng7fof2w0" path="res://ASSETS/Slime Sprite/slimeBlue.png" id="2_10ijs"]
+[ext_resource type="Texture2D" uid="uid://nmn8ubbkutxu" path="res://ASSETS/Slime Sprite/slimeBlue_blue.png" id="3_4t1fo"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4k1iy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_10ijs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_4t1fo")
+}],
+"loop": true,
+"name": &"crawl",
+"speed": 3.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jgn51"]
+size = Vector2(72, 48)
+
+[node name="Enemy" type="CharacterBody2D" groups=["hittable"]]
+script = ExtResource("1_mqkbs")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(1.5102, 1.47059)
+sprite_frames = SubResource("SpriteFrames_4k1iy")
+animation = &"crawl"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_jgn51")
