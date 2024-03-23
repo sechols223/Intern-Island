@@ -3,7 +3,7 @@ using System;
 
 public partial class PlayerInfo : Node
 {
-	public float speedModifier = 2.0f;
+	public float speedmodifier = 2.0f;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -13,5 +13,5 @@ public partial class PlayerInfo : Node
 	public override void _Process(double delta)
 	{
 	}
-	public float GetSpeedModifier() => speedModifier;
+	public float GetSpeedModifier() => speedmodifier;
 }

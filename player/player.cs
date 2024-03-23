@@ -13,12 +13,12 @@ public partial class player : CharacterBody2D
 	public float Gravity { get; set; } = ProjectSettings.GetSetting("physics/2d/default_gravity").AsSingle();
 
 	public float lastDirection = 1;
-	public Seasons _seasons;
 	public PlayerInfo _playerInfo;
 	private Timer _timer;
 	public override void _Ready()
 	{
 		Timer timer = GetNode<Timer>("DashTimer");
+		_playerInfo = GetNode<PlayerInfo>("/root/PlayerInfo");
 		timer.WaitTime = 1.5f;
 
 		_timer = timer;
@@ -48,7 +48,6 @@ public partial class player : CharacterBody2D
 			GetNode<GodotObject>("WeaponHolderPivot/WeaponHolder").Set("direction", (int)Math.Round(lastDirection));
 			float speed = _speed;
 			
-			_playerInfo = GetNode<PlayerInfo>("/root/PlayerInfo");
 					 
 			velocity.X = direction * speed * _playerInfo.GetSpeedModifier();
 			Velocity = velocity;
