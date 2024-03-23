@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+@onready var particles: GPUParticles2D = $IceParticles
+
 func _init():
 	velocity = Vector2(500.0, 0.0)
 
@@ -22,4 +24,8 @@ func _physics_process(_delta):
 		die()
 
 func die():
+	particles.emitting = false
+	particles.reparent(get_parent())
+	get_tree().create_timer(3.0).timeout.connect(particles.queue_free)
 	queue_free()
+	

@@ -15,7 +15,7 @@ func _physics_process(delta):
 	var hit_bodies = get_overlapping_bodies()
 	for body in hit_bodies:
 		if body.is_in_group("hittable"):
-			body.hit("steam", delta)
+			body.hit("steam", delta * 5)
 
 func fade():
 	var tween = create_tween()
