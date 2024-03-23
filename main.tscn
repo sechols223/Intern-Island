@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://vk8t78obd2yk"]
+[gd_scene load_steps=7 format=3 uid="uid://vk8t78obd2yk"]
 
 [ext_resource type="Script" path="res://main.cs" id="1_82a8v"]
 [ext_resource type="PackedScene" uid="uid://bff41srivprx" path="res://player/player.tscn" id="1_fix0w"]
 [ext_resource type="Texture2D" uid="uid://dasycdqlrd7il" path="res://dodge_the_creeps_2d_assets/dodge_the_creeps_2d_assets/art/kenney_abstract-platformer/Tilesheet/tilesheet_complete.png" id="3_u4i7a"]
+[ext_resource type="PackedScene" uid="uid://cwn1sqbrptyxc" path="res://terrain/puddle.tscn" id="4_a3pka"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_egvvn"]
 texture = ExtResource("3_u4i7a")
@@ -823,3 +824,6 @@ position = Vector2(424, 88)
 tile_set = SubResource("TileSet_jxj74")
 format = 2
 layer_0/tile_data = PackedInt32Array(65537, 983040, 5, 65536, 851968, 5, 131071, 983040, 5, 131070, 1048576, 5, 131069, 917504, 5, 131068, 1048576, 5, 65538, 851968, 5, 131074, 917504, 5, 131073, 851968, 5, 131072, 983040, 5, 196607, 983040, 5, 196606, 786432, 5, 196605, 983040, 5, 196604, 851968, 5, 196603, 917504, 5, 131067, 983040, 5, 65539, 983040, 5, 131075, 786432, 5)
+
+[node name="puddle" parent="." instance=ExtResource("4_a3pka")]
+position = Vector2(747, 217)
