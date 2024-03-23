@@ -1,10 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://vk8t78obd2yk"]
+[gd_scene load_steps=10 format=3 uid="uid://vk8t78obd2yk"]
 
 [ext_resource type="Script" path="res://main.cs" id="1_82a8v"]
 [ext_resource type="PackedScene" uid="uid://bff41srivprx" path="res://player/player.tscn" id="1_fix0w"]
+[ext_resource type="Shader" path="res://wavy.gdshader" id="3_nvjj3"]
 [ext_resource type="Texture2D" uid="uid://dasycdqlrd7il" path="res://dodge_the_creeps_2d_assets/dodge_the_creeps_2d_assets/art/kenney_abstract-platformer/Tilesheet/tilesheet_complete.png" id="3_u4i7a"]
 [ext_resource type="PackedScene" uid="uid://dg0albh5etkf1" path="res://season_indicator.tscn" id="4_6qjfr"]
 [ext_resource type="PackedScene" uid="uid://bq1qgrvxpwvaq" path="res://enemy/enemy.tscn" id="4_sclm2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vyftk"]
+shader = ExtResource("3_nvjj3")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_egvvn"]
 texture = ExtResource("3_u4i7a")
@@ -720,6 +724,7 @@ texture_region_size = Vector2i(64, 64)
 11:10/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 11:10/0/physics_layer_0/angular_velocity = 0.0
 12:10/0 = 0
+12:10/0/material = SubResource("ShaderMaterial_vyftk")
 12:10/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 12:10/0/physics_layer_0/angular_velocity = 0.0
 13:10/0 = 0
@@ -830,7 +835,7 @@ position = Vector2(424, 104)
 [node name="Level" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_jxj74")
 format = 2
-layer_0/tile_data = PackedInt32Array(524292, 65536, 3, 589828, 0, 3, 524293, 131072, 3, 589829, 0, 3, 524294, 131072, 3, 589830, 0, 3, 524295, 131072, 3, 589831, 0, 3, 524296, 131072, 3, 589832, 0, 3, 524297, 131072, 3, 589833, 0, 3, 524298, 131072, 3, 589834, 0, 3, 524299, 131072, 3, 589835, 0, 3, 524300, 65536, 5, 589836, 0, 3, 458764, 131072, 3, 458756, 131072, 3)
+layer_0/tile_data = PackedInt32Array(524292, 65536, 3, 589828, 0, 3, 524293, 131072, 3, 589829, 0, 3, 524294, 131072, 3, 589830, 0, 3, 524295, 131072, 3, 589831, 0, 3, 524296, 131072, 3, 589832, 0, 3, 524297, 131072, 3, 589833, 0, 3, 524298, 131072, 3, 589834, 0, 3, 524299, 131072, 3, 589835, 0, 3, 524300, 65536, 5, 589836, 0, 3, 458764, 131072, 3, 458756, 131072, 3, 458765, 786432, 10, 458766, 786432, 10, 458767, 786432, 10, 458768, 786432, 10, 458769, 786432, 10, 458770, 786432, 10, 458771, 786432, 10, 458772, 786432, 10, 458773, 786432, 10, 589839, 786432, 11, 524304, 786432, 11, 458774, 786432, 10, 524301, 786432, 11, 524302, 786432, 11, 524303, 786432, 11, 524305, 786432, 11, 524306, 786432, 11, 524307, 786432, 11, 524308, 786432, 11, 524309, 786432, 11, 524310, 786432, 11, 589846, 786432, 11, 589845, 786432, 11, 589844, 786432, 11, 589843, 786432, 11, 589842, 786432, 11, 589841, 786432, 11, 589840, 786432, 11, 589838, 786432, 11, 589837, 786432, 11)
 
 [node name="SeasonIndicator" parent="." instance=ExtResource("4_6qjfr")]
 
